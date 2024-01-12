@@ -1,0 +1,117 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[margin=0.15in]{geometry}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}
+  {\vspace{-4pt}\scshape\raggedright\large}
+  {}
+  {0em}
+  {}
+  [\color{black}\titlerule \vspace{-5pt}]
+
+\newlist{resumelist}{itemize}{1}
+\setlist[resumelist]{
+  leftmargin=0.15in,
+  label={},
+  nosep,
+}
+
+\newlist{resumesublist}{itemize}{2}
+\setlist[resumesublist]{
+  label={$\vcenter{\hbox{\tiny$\bullet$}}$},
+  nosep,
+}
+
+\newenvironment{lrtable}
+  {\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}}
+  {\end{tabular*}}
+
+\newcommand{\subheading}[4]{
+  \begin{lrtable}
+    {\bf #1} & {#2} \\
+    {\it\small {#3}} & {\it\small {#4}}
+  \end{lrtable}
+}
+\newcommand{\subsubheading}[2]{
+  \begin{lrtable}
+    \it\small {#1} & {#2}
+  \end{lrtable}
+}
+\newcommand{\projectheading}[2]{
+  \begin{lrtable}
+    \small {#1} & {#2}
+  \end{lrtable}
+}
+
+\begin{document}
+
+% header
+\begin{center}
+  {\bf\huge FirstName LastName} \\ \vspace{2pt}
+  \small
+  % 123-456-7890 $|$
+  \href{mailto:example@example.com}{\underline{example@example.com}} $|$ 
+  % \href{https://linkedin.com/in/...}{\underline{linkedin.com/in/...}} $|$
+  % \href{https://github.com/...}{\underline{github.com/...}}
+\end{center}
+
+% education
+\section{Education}
+\begin{resumelist}
+  \item \subheading
+    {University of ...}{Location, Location}
+    {Bachelor of ...}{Sep. 0000 -- Aug. 0000}
+\end{resumelist}
+
+% experience
+\section{Experience}
+\begin{resumelist}
+  \item \subheading
+    {Title}{Time}
+    {Org}{Place}
+    \begin{resumesublist}
+      \item abc
+      \item def
+    \end{resumesublist}
+\end{resumelist}
+
+% projects
+\section{Projects}
+\begin{resumelist}
+  \item \projectheading
+    {{\bf Title} $|$ {\it A, B}}{Time}
+    \begin{resumesublist}
+      \item abc
+      \item def
+    \end{resumesublist}
+\end{resumelist}
+
+% skills
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in]
+  \item[] \small
+    \textbf{A}{: a, b, c} \\
+    \textbf{B}{: d, e, f}
+\end{itemize}
+
+\end{document}
